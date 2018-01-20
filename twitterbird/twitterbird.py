@@ -1,5 +1,8 @@
 import ems
-import urllib2 as url
+try:
+    from urllib2 import urlopen
+except ModuleNotFoundError:
+    from urllib.requests import urlopen
 import webbrowser as web
 import os
 
@@ -11,7 +14,7 @@ cfg = ''.join(cfg_lines).splitlines()
 
 
 
-psr = ems.parser(url.urlopen('https://twitter.com/' + cfg[0]).read()) #twitter targeter
+psr = ems.parser(urlopen('https://twitter.com/' + cfg[0]).read()) #twitter targeter
 key_strings = cfg[1:len(cfg)] #keywords defined
 elements = psr.getElementsByClass("TweetTextSize TweetTextSize--normal js-tweet-text tweet-text")
 contents = []
