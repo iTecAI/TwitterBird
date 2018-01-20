@@ -2,7 +2,7 @@ import ems
 try:
     from urllib2 import urlopen
 except ModuleNotFoundError:
-    from urllib.requests import urlopen
+    from urllib.request import urlopen
 import webbrowser as web
 import os
 
